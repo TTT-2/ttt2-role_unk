@@ -74,18 +74,19 @@ if SERVER then
 
 				-- revive after 3s
 				ply:Revive(3, function(p)
-					if IsValid(p) and IsValid(killer) and killer:IsActive() then
-						if SIDEKICK and killer:GetSubRole() == ROLE_SIDEKICK then
-							killer = killer:GetSidekickMate() or nil
-						end
-
-						if IsValid(killer) and killer:IsActive() then
-							p:UpdateRole(killer:GetSubRole(), killer:GetTeam())
-							p:SetDefaultCredits()
-
-							SendFullStateUpdate()
-						end
+					if SIDEKICK and killer:GetSubRole() == ROLE_SIDEKICK then
+						killer = killer:GetSidekickMate() or nil
 					end
+
+					if IsValid(killer) and killer:IsActive() then
+						p:UpdateRole(killer:GetSubRole(), killer:GetTeam())
+						p:SetDefaultCredits()
+
+						SendFullStateUpdate()
+					end
+				end,
+				function(p)
+					return IsValid(p) and IsValid(killer) and killer:IsActive()
 				end)
 			end
 		end
