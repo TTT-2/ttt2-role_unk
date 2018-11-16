@@ -8,12 +8,11 @@ end
 -- important to add roles with this function,
 -- because it does more than just access the array ! e.g. updating other arrays
 InitCustomRole("UNKNOWN", { -- first param is access for ROLES array => UNKNOWN or ROLES["UNKNOWN"]
-		color = Color(0, 0, 0, 255), -- ...
-		dkcolor = Color(50, 50, 50, 255), -- ...
-		bgcolor = Color(50, 50, 50, 200), -- ...
-		name = "unknown", -- just a unique name for the script to determine
+		color = Color(150, 150, 150, 255), -- ...
+		dkcolor = Color(46, 46, 46, 255), -- ...
+		bgcolor = Color(120, 120, 120, 200), -- ...
 		abbr = "unk", -- abbreviation
-		team = "unks", -- the team name: roles with same team name are working together
+		defaultTeam = TEAM_NONE, -- the team name: roles with same team name are working together
 		unknownTeam = true,
 		defaultEquipment = SPECIAL_EQUIPMENT, -- here you can set up your own default equipment
 		surviveBonus = 1, -- bonus multiplier for every survive while another player was killed
@@ -30,8 +29,6 @@ InitCustomRole("UNKNOWN", { -- first param is access for ROLES array => UNKNOWN 
 if CLIENT then -- just on client and first init !
 	-- if sync of roles has finished
 	hook.Add("TTT2FinishedLoading", "UnkInitT", function()
-		infMat = Material("vgui/ttt/sprite_" .. UNKNOWN.abbr)
-
 		-- setup here is not necessary but if you want to access the role data, you need to start here
 		-- setup basic translation !
 		LANG.AddToLanguage("English", UNKNOWN.name, "Unknown")
