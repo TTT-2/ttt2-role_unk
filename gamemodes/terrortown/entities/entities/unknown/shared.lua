@@ -76,7 +76,7 @@ if SERVER then
 					end
 
 					if IsValid(killer) and killer:IsActive() then
-						p:UpdateRole(killer:GetSubRole(), killer:GetTeam())
+						p:SetRole(killer:GetSubRole(), killer:GetTeam())
 						p:SetDefaultCredits()
 
 						SendFullStateUpdate()
