@@ -1,16 +1,15 @@
 if SERVER then
 	AddCSLuaFile()
 
-	resource.AddFile("materials/vgui/ttt/icon_unk.vmt")
-	resource.AddFile("materials/vgui/ttt/sprite_unk.vmt")
+	resource.AddFile("materials/vgui/ttt/dynamic/roles/icon_unk.vmt")
 end
 
 -- important to add roles with this function,
 -- because it does more than just access the array ! e.g. updating other arrays
 InitCustomRole("UNKNOWN", { -- first param is access for ROLES array => UNKNOWN or ROLES["UNKNOWN"]
-		color = Color(150, 150, 150, 255), -- ...
-		dkcolor = Color(46, 46, 46, 255), -- ...
-		bgcolor = Color(120, 120, 120, 255), -- ...
+		color = Color(190, 207, 210, 255), -- ...
+		dkcolor = Color(95, 135, 143, 255), -- ...
+		bgcolor = Color(255, 242, 230, 255), -- ...
 		abbr = "unk", -- abbreviation
 		defaultTeam = TEAM_NONE, -- the team name: roles with same team name are working together
 		unknownTeam = true,
