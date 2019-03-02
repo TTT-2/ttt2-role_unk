@@ -17,11 +17,11 @@ ROLE.scoreTeamKillsMultiplier = -4 -- multiplier for teamkill
 ROLE.preventWin = true -- set true if role can't win (maybe because of own / special win conditions)
 
 ROLE.conVarData =  {
-		pct = 0.17, -- necessary: percentage of getting this role selected (per player)
-		maximum = 1, -- maximum amount of roles in a round
-		minPlayers = 6, -- minimum amount of players until this role is able to get selected
-		random = 10 -- randomness of getting this role selected in a round
-})
+	pct = 0.17, -- necessary: percentage of getting this role selected (per player)
+	maximum = 1, -- maximum amount of roles in a round
+	minPlayers = 6, -- minimum amount of players until this role is able to get selected
+	random = 10 -- randomness of getting this role selected in a round
+}
 
 if CLIENT then -- just on client and first init !
 	-- if sync of roles has finished
