@@ -4,21 +4,19 @@ if SERVER then
 	resource.AddFile("materials/vgui/ttt/dynamic/roles/icon_unk.vmt")
 end
 
--- important to add roles with this function,
--- because it does more than just access the array ! e.g. updating other arrays
-InitCustomRole("UNKNOWN", { -- first param is access for ROLES array => UNKNOWN or ROLES["UNKNOWN"]
-		color = Color(190, 207, 210, 255), -- ...
-		dkcolor = Color(95, 135, 143, 255), -- ...
-		bgcolor = Color(255, 242, 230, 255), -- ...
-		abbr = "unk", -- abbreviation
-		defaultTeam = TEAM_NONE, -- the team name: roles with same team name are working together
-		unknownTeam = true,
-		defaultEquipment = SPECIAL_EQUIPMENT, -- here you can set up your own default equipment
-		surviveBonus = 1, -- bonus multiplier for every survive while another player was killed
-		scoreKillsMultiplier = 2, -- multiplier for kill of player of another team
-		scoreTeamKillsMultiplier = -4, -- multiplier for teamkill
-		preventWin = true -- set true if role can't win (maybe because of own / special win conditions)
-	}, {
+ROLE.color = Color(190, 207, 210, 255) -- ...
+ROLE.dkcolor = Color(95, 135, 143, 255) -- ...
+ROLE.bgcolor = Color(255, 242, 230, 255) -- ...
+ROLE.abbr = "unk" -- abbreviation
+ROLE.defaultTeam = TEAM_NONE -- the team name: roles with same team name are working together
+ROLE.unknownTeam = true
+ROLE.defaultEquipment = SPECIAL_EQUIPMENT -- here you can set up your own default equipment
+ROLE.surviveBonus = 1 -- bonus multiplier for every survive while another player was killed
+ROLE.scoreKillsMultiplier = 2 -- multiplier for kill of player of another team
+ROLE.scoreTeamKillsMultiplier = -4 -- multiplier for teamkill
+ROLE.preventWin = true -- set true if role can't win (maybe because of own / special win conditions)
+
+ROLE.conVarData =  {
 		pct = 0.17, -- necessary: percentage of getting this role selected (per player)
 		maximum = 1, -- maximum amount of roles in a round
 		minPlayers = 6, -- minimum amount of players until this role is able to get selected
