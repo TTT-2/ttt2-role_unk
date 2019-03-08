@@ -64,7 +64,7 @@ if SERVER then
 
 			ply.unknownKiller = nil
 
-			if IsValid(killer) then
+			if IsValid(killer) and not ply.reviving then
 
 				-- revive after 3s
 				ply:Revive(3, function(p)
@@ -80,7 +80,7 @@ if SERVER then
 					end
 				end,
 				function(p)
-					return IsValid(p) and IsValid(killer) and killer:IsActive()
+					return IsValid(p) and IsValid(killer) and killer:IsActive() and killer:Alive()
 				end)
 			end
 		end
