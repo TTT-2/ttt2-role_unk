@@ -36,12 +36,12 @@ function ROLE:Initialize()
 		LANG.AddToLanguage("English", "ttt2_desc_" .. self.name, [[The Unknown can decide (more or less) the role.
 Get killed by someone to copy the role of your killer!]])
 
-		LANG.AddToLanguage("Italiano", self.name, "Sconosciuto")
+		LANG.AddToLanguage("Italiano", self.name, "Unknown")
 		LANG.AddToLanguage("Italiano", "info_popup_" .. self.name, [[Puoi decidere chi vuoi essere...]])
-		LANG.AddToLanguage("Italiano", "body_found_" .. self.abbr, "Era uno Sconosciuto...")
-		LANG.AddToLanguage("Italiano", "search_role_" .. self.abbr, "Questa persona era uno Sconosciuto!")
-		LANG.AddToLanguage("Italiano", "target_" .. self.name, "Sconosciuto")
-		LANG.AddToLanguage("Italiano", "ttt2_desc_" .. self.name, [[Lo Sconosciuto può decidere (più o meno) il ruolo.
+		LANG.AddToLanguage("Italiano", "body_found_" .. self.abbr, "Era un Unknown...")
+		LANG.AddToLanguage("Italiano", "search_role_" .. self.abbr, "Questa persona era un Unknown!")
+		LANG.AddToLanguage("Italiano", "target_" .. self.name, "Unknown")
+		LANG.AddToLanguage("Italiano", "ttt2_desc_" .. self.name, [[L'Unknown può decidere (più o meno) il ruolo.
 Fatti uccidere da qualcuno per prendere il suo ruolo!]])
 
 		LANG.AddToLanguage("Deutsch", self.name, "Unbekannter")
