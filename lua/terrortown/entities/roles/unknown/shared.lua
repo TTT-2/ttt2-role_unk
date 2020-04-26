@@ -25,35 +25,6 @@ function ROLE:PreInitialize()
 	}
 end
 
-function ROLE:Initialize()
-	if CLIENT then
-		-- Role specific language elements
-		LANG.AddToLanguage("English", self.name, "Unknown")
-		LANG.AddToLanguage("English", "info_popup_" .. self.name, [[You can decide who you want to be...]])
-		LANG.AddToLanguage("English", "body_found_" .. self.abbr, "This was an Unknown...")
-		LANG.AddToLanguage("English", "search_role_" .. self.abbr, "This person was an Unknown!")
-		LANG.AddToLanguage("English", "target_" .. self.name, "Unknown")
-		LANG.AddToLanguage("English", "ttt2_desc_" .. self.name, [[The Unknown can decide (more or less) the role.
-Get killed by someone to copy the role of your killer!]])
-
-		LANG.AddToLanguage("Italiano", self.name, "Unknown")
-		LANG.AddToLanguage("Italiano", "info_popup_" .. self.name, [[Puoi decidere chi vuoi essere...]])
-		LANG.AddToLanguage("Italiano", "body_found_" .. self.abbr, "Era un Unknown...")
-		LANG.AddToLanguage("Italiano", "search_role_" .. self.abbr, "Questa persona era un Unknown!")
-		LANG.AddToLanguage("Italiano", "target_" .. self.name, "Unknown")
-		LANG.AddToLanguage("Italiano", "ttt2_desc_" .. self.name, [[L'Unknown può decidere (più o meno) il ruolo.
-Fatti uccidere da qualcuno per prendere il suo ruolo!]])
-
-		LANG.AddToLanguage("Deutsch", self.name, "Unbekannter")
-		LANG.AddToLanguage("Deutsch", "info_popup_" .. self.name, [[Du hast die Wahl, wer du sein willst...]])
-		LANG.AddToLanguage("Deutsch", "body_found_" .. self.abbr, "Er war ein Unbekannter...")
-		LANG.AddToLanguage("Deutsch", "search_role_" .. self.abbr, "Diese Person war ein Unbekannter!")
-		LANG.AddToLanguage("Deutsch", "target_" .. self.name, "Unbekannter")
-		LANG.AddToLanguage("Deutsch", "ttt2_desc_" .. self.name, [[Die Unbekannten können sich ihre Rolle (mehr oder weniger) aussuchen.
-Werde von jemanden getötet, um dessen Rolle zu kopieren.]])
-	end
-end
-
 if SERVER then
 	hook.Add("PlayerDeath", "UnknownDeath", function(victim, infl, attacker)
 		if victim:GetSubRole() == ROLE_UNKNOWN and IsValid(attacker) and attacker:IsPlayer() and attacker:GetSubRole() ~= ROLE_UNKNOWN then
