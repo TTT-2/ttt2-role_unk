@@ -17,7 +17,7 @@ function ROLE:PreInitialize()
 	self.defaultTeam = TEAM_NONE -- the team name: roles with same team name are working together
 	self.defaultEquipment = SPECIAL_EQUIPMENT -- here you can set up your own default equipment
 
-	self.conVarData =  {
+	self.conVarData = {
 		pct = 0.17, -- necessary: percentage of getting this role selected (per player)
 		maximum = 1, -- maximum amount of roles in a round
 		minPlayers = 6, -- minimum amount of players until this role is able to get selected
@@ -26,39 +26,27 @@ function ROLE:PreInitialize()
 end
 
 if SERVER then
-	hook.Add("PlayerDeath", "UnknownDeath", function(victim, infl, attacker)
-		if victim:GetSubRole() == ROLE_UNKNOWN and IsValid(attacker) and attacker:IsPlayer() and attacker:GetSubRole() ~= ROLE_UNKNOWN then
-			if INFECTED and attacker:GetSubRole() == ROLE_INFECTED then return end
+	hook.Add("TTT2PostPlayerDeath", "ttt2_role_unknown_death", function(victim, inflictor, attacker)
+		if victim:GetSubRole() ~= ROLE_UNKNOWN or victim.reviving then return end
 
-			victim.unknownKiller = attacker
-		end
-	end)
+		if not IsValid(attacker) or not attacker:IsPlayer()
+			or attacker:GetSubRole() == ROLE_UNKNOWN or attacker:GetSubRole() == ROLE_INFECTED
+		then return end
 
-	hook.Add("PostPlayerDeath", "UnknownPostDeath", function(ply)
-		if ply:GetSubRole() == ROLE_UNKNOWN then
-			local killer = ply.unknownKiller
-
-			ply.unknownKiller = nil
-
-			if IsValid(killer) and not ply.reviving then
-
-				-- revive after 3s
-				ply:Revive(3, function(p)
-					if SIDEKICK and killer:GetSubRole() == ROLE_SIDEKICK then
-						killer = killer:GetSidekickMate() or nil
-					end
-
-					if IsValid(killer) and killer:IsActive() then
-						p:SetRole(killer:GetSubRole(), killer:GetTeam())
-						p:SetDefaultCredits()
-
-						SendFullStateUpdate()
-					end
-				end,
-				function(p)
-					return IsValid(p) and IsValid(killer) and killer:IsActive() and killer:Alive()
-				end)
+		ply:Revive(3, function(p)
+			if SIDEKICK and killer:GetSubRole() == ROLE_SIDEKICK then
+				killer = killer:GetSidekickMate() or nil
 			end
-		end
+
+			if IsValid(killer) and killer:IsActive() then
+				p:SetRole(killer:GetSubRole(), killer:GetTeam())
+				p:SetDefaultCredits()
+
+				SendFullStateUpdate()
+			end
+		end,
+		function(p)
+			return IsValid(p) and IsValid(killer) and killer:IsActive() and killer:Alive()
+		end)
 	end)
 end
