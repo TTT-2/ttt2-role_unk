@@ -9,3 +9,9 @@ L["search_role_" .. UNKNOWN.abbr] = "This person was an Unknown!"
 L["target_" .. UNKNOWN.name] = "Unknown"
 L["ttt2_desc_" .. UNKNOWN.name] = [[The Unknown can decide (more or less) about his role.
 Get killed by someone to receive the role of your killer!]]
+
+-- OTHER ROLE LANGUAGE STRINGS
+L["unknown_revival"] = "You will be revived!"
+L["unknown_revival_text"] = "You will be revived as {role} in {time} second(s). Be prepared."
+L["unknown_revival_canceled"] = "Revival Canceled"
+L["unknown_revival_canceled_text"] = "Your revival was canceled because your killer died prematurely."
