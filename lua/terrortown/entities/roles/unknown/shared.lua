@@ -69,8 +69,8 @@ if SERVER then
 		for i = 1, #vics do
 			local vic = vics[i]
 
-			RemovePopup(vic, "revival_unknown")
-			ShowPopup(vic, ply, "revival_unknown_canceled")
+			RemovePopup(vic, "unknownRevival")
+			ShowPopup(vic, ply, "unknownRevivalCanceled")
 		end
 	end)
 
@@ -86,24 +86,28 @@ if SERVER then
 		attacker.killedUnknownsTable[#attacker.killedUnknownsTable + 1] = victim
 
 		-- show revival info popup
-		ShowPopup(victim, attacker, "revival_unknown")
+		ShowPopup(victim, attacker, "unknownRevival")
 
 		-- start revival provess
-		ply:Revive(GetGlobalInt("ttt_unknown_respawn_time", 10), function(p)
-			if SIDEKICK and killer:GetSubRole() == ROLE_SIDEKICK then
-				killer = killer:GetSidekickMate() or nil
-			end
+		victim:Revive(GetGlobalInt("ttt_unknown_respawn_time", 10),
+			function(p)
+				if SIDEKICK and attacker:GetSubRole() == ROLE_SIDEKICK then
+					attacker = attacker:GetSidekickMate() or nil
+				end
 
-			if IsValid(killer) and killer:IsActive() then
-				p:SetRole(killer:GetSubRole(), killer:GetTeam())
-				p:SetDefaultCredits()
+				if IsValid(attacker) and attacker:IsActive() then
+					p:SetRole(attacker:GetSubRole(), attacker:GetTeam())
+					p:SetDefaultCredits()
 
-				SendFullStateUpdate()
-			end
-		end,
-		function(p)
-			return IsValid(p) and IsValid(killer) and killer:IsActive() and killer:Alive()
-		end)
+					SendFullStateUpdate()
+				end
+			end,
+			function(p)
+				return IsValid(p) and IsValid(attacker) and attacker:IsActive() and attacker:Alive()
+			end,
+			true,
+			true
+		)
 	end)
 
 	hook.Add("TTTBeginRound", "ttt2_role_unknown_reset", function()
