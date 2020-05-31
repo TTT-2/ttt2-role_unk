@@ -11,7 +11,7 @@ L["ttt2_desc_" .. UNKNOWN.name] = [[L'Unknown può decidere (più o meno) il ruo
 Fatti uccidere da qualcuno per prendere il suo ruolo!]]
 
 -- OTHER ROLE LANGUAGE STRINGS
---L["unknown_revival"] = "You will be revived!"
---L["unknown_revival_text"] = "You will be revived as {role} in {time} second(s). Be prepared."
---L["unknown_revival_canceled"] = "Revival Canceled"
---L["unknown_revival_canceled_text"] = "Your revival was canceled because your killer died prematurely."
+L["unknown_revival"] = "Verrai rianimato!"
+L["unknown_revival_text"] = "Verrai rianimato come {role} in {time} secondi. Stai pronto!."
+L["unknown_revival_canceled"] = "Rianimazione cancellata"
+L["unknown_revival_canceled_text"] = "La tua rianimazione è stata cancellata perchè il tuo assassino è morto prematuramente."
