@@ -95,12 +95,14 @@ if SERVER then
 					attacker = attacker:GetSidekickMate() or nil
 				end
 
-				if IsValid(attacker) and attacker:IsActive() then
-					p:SetRole(attacker:GetSubRole(), attacker:GetTeam())
-					p:SetDefaultCredits()
+				p:SetRole(attacker:GetSubRole(), attacker:GetTeam())
+				p:SetDefaultCredits()
 
-					SendFullStateUpdate()
-				end
+				SendFullStateUpdate()
+
+				-- remove victim from victim table so he will no longer be
+				-- notified about the attacker death
+				table.RemoveByValue(attacker.killedUnknownsTable, p)
 			end,
 			function(p)
 				return IsValid(p) and IsValid(attacker) and attacker:IsActive() and attacker:Alive()
