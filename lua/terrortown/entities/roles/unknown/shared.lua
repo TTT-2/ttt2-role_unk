@@ -91,6 +91,9 @@ if SERVER then
 		-- start revival provess
 		victim:Revive(GetGlobalInt("ttt_unknown_respawn_time", 10),
 			function(p)
+				-- reset confirm Unknown player, in case their body was confirmed
+				p:ResetConfirmPlayer()
+
 				if SIDEKICK and attacker:GetSubRole() == ROLE_SIDEKICK then
 					attacker = attacker:GetSidekickMate() or nil
 				end
