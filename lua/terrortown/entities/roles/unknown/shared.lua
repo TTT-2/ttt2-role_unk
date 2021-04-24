@@ -28,7 +28,7 @@ function ROLE:PreInitialize()
 	self.unknownTeam = true
 	self.score.killsMultiplier = -2
 	self.score.teamKillsMultiplier = -8
-	self.score.surviveBonusMultiplier = -2
+	self.score.allSurviveBonusMultiplier = -2
 	self.score.timelimitMultiplier = -2
 	self.preventWin = true
 
