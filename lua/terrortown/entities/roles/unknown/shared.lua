@@ -24,21 +24,22 @@ end)
 function ROLE:PreInitialize()
 	self.color = Color(190, 207, 210, 255)
 
-	self.abbr = "unk" -- abbreviation
+	self.abbr = "unk"
 	self.unknownTeam = true
-	self.surviveBonus = 1 -- bonus multiplier for every survive while another player was killed
-	self.scoreKillsMultiplier = 2 -- multiplier for kill of player of another team
-	self.scoreTeamKillsMultiplier = -4 -- multiplier for teamkill
-	self.preventWin = true -- set true if role can't win (maybe because of own / special win conditions)
+	self.score.killsMultiplier = -2
+	self.score.teamKillsMultiplier = -8
+	self.score.surviveBonusMultiplier = -2
+	self.score.timelimitMultiplier = -2
+	self.preventWin = true
 
-	self.defaultTeam = TEAM_NONE -- the team name: roles with same team name are working together
-	self.defaultEquipment = SPECIAL_EQUIPMENT -- here you can set up your own default equipment
+	self.defaultTeam = TEAM_NONE
+	self.defaultEquipment = SPECIAL_EQUIPMENT
 
 	self.conVarData = {
-		pct = 0.17, -- necessary: percentage of getting this role selected (per player)
-		maximum = 1, -- maximum amount of roles in a round
-		minPlayers = 6, -- minimum amount of players until this role is able to get selected
-		random = 10 -- randomness of getting this role selected in a round
+		pct = 0.17,
+		maximum = 1,
+		minPlayers = 6,
+		random = 10
 	}
 end
 
