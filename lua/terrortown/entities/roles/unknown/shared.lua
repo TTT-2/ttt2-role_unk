@@ -84,6 +84,7 @@ if SERVER then
 		then return end
 
 		-- add player to killer table in case he prematureley dies
+		attacker.killedUnknownsTable = attacker.killedUnknownsTable or {}
 		attacker.killedUnknownsTable[#attacker.killedUnknownsTable + 1] = victim
 
 		-- show revival info popup
