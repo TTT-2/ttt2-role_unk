@@ -65,6 +65,8 @@ if SERVER then
 	hook.Add("PostPlayerDeath", "ttt2_role_unknown_killer_death", function(ply)
 		vics = ply.killedUnknownsTable
 
+		if SpecDM and (ply.IsGhost and ply:IsGhost() or (vics.IsGhost and vics:IsGhost())) then return end
+
 		if not vics or #vics == 0 then return end
 
 		for i = 1, #vics do
@@ -78,6 +80,8 @@ if SERVER then
 	-- HANDLE UNKNOWN PLAYER DEATH
 	hook.Add("TTT2PostPlayerDeath", "ttt2_role_unknown_death", function(victim, inflictor, attacker)
 		if victim:GetSubRole() ~= ROLE_UNKNOWN or victim:IsReviving() then return end
+
+		if SpecDM and (victim.IsGhost and victim:IsGhost() or (attacker.IsGhost and attacker:IsGhost())) then return end
 
 		if not IsValid(attacker) or not attacker:IsPlayer()
 			or attacker:GetSubRole() == ROLE_UNKNOWN or attacker:GetSubRole() == ROLE_INFECTED
