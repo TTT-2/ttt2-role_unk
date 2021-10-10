@@ -135,7 +135,7 @@ if CLIENT then
 		local shouldAdd = net.ReadBool()
 
 		if shouldAdd then
-			local role = roles.GetRoleByIndex(net.ReadUInt(ROLE_BITS))
+			local role = roles.GetByIndex(net.ReadUInt(ROLE_BITS))
 
 			if id == "unknownRevival" then
 				client.epopId[id] = EPOP:AddMessage(
