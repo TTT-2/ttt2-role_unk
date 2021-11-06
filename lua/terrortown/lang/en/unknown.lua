@@ -7,7 +7,7 @@ Get killed by someone to receive the role of your killer!]]
 L["body_found_" .. UNKNOWN.abbr] = "They were an Unknown."
 L["search_role_" .. UNKNOWN.abbr] = "This person was an Unknown!"
 L["target_" .. UNKNOWN.name] = "Unknown"
-L["ttt2_desc_" .. UNKNOWN.name] = [[The Unknown can decide (more or less) about his role.
+L["ttt2_desc_" .. UNKNOWN.name] = [[The Unknown can decide (more or less) what their role will be.
 Get killed by someone to receive the role of your killer!]]
 
 -- OTHER ROLE LANGUAGE STRINGS
