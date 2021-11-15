@@ -30,8 +30,8 @@ function ROLE:PreInitialize()
 	self.score.teamKillsMultiplier = -8
 	self.score.allSurviveBonusMultiplier = -2
 	self.score.timelimitMultiplier = -2
-	self.preventWin = true
 
+	self.preventWin = true
 	self.defaultTeam = TEAM_NONE
 	self.defaultEquipment = SPECIAL_EQUIPMENT
 
@@ -117,7 +117,7 @@ if SERVER then
 				return IsValid(p) and IsValid(attacker) and attacker:IsActive() and attacker:Alive()
 			end,
 			true,
-			true
+			REVIVAL_BLOCK_ALL
 		)
 	end)
 
