@@ -15,3 +15,5 @@ L["unknown_revival"] = "¡Serás revivido!"
 L["unknown_revival_text"] = "Serás revivido como {role} en {time} segundos. Prepárate."
 L["unknown_revival_canceled"] = "Reaparición cancelada"
 L["unknown_revival_canceled_text"] = "Tu reaparición fue cancelada porque tu asesino murió prematuramente."
+
+--L["label_unknown_respawn_time"] = "Respawn time"

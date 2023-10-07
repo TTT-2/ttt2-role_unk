@@ -15,12 +15,6 @@ if SERVER then
 	end)
 end
 
-hook.Add("TTTUlxDynamicRCVars", "ttt2_ulx_dynamic_unknown_convars", function(tbl)
-	tbl[ROLE_UNKNOWN] = tbl[ROLE_UNKNOWN] or {}
-
-	table.insert(tbl[ROLE_UNKNOWN], {cvar = "ttt_unknown_respawn_time", slider = true, min = 0, max = 60, decimal = 0, desc = "ttt_unknown_respawn_time (def. 3)"})
-end)
-
 function ROLE:PreInitialize()
 	self.color = Color(190, 207, 210, 255)
 
@@ -131,6 +125,18 @@ if SERVER then
 end
 
 if CLIENT then
+	function ROLE:AddToSettingsMenu(parent)
+		local form = vgui.CreateTTT2Form(parent, "header_roles_additional")
+
+		form:MakeSlider({
+			serverConvar = "ttt_unknown_respawn_time",
+			label = "label_unknown_respawn_time",
+			min = 0,
+			max = 60,
+			decimal = 0
+		})
+	end
+
 	net.Receive("ttt2_net_unknown_show_popup", function()
 		local client = LocalPlayer()
 		client.epopId = client.epopId or {}

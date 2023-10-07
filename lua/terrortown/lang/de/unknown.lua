@@ -15,3 +15,5 @@ L["unknown_revival"] = "Du witst wiederbelebt!"
 L["unknown_revival_text"] = "Du wirst in {time} Sekunde(n) als {role} wiederbeleben. Sei vorbereitet."
 L["unknown_revival_canceled"] = "Wiederbelebung abgebrochen."
 L["unknown_revival_canceled_text"] = "Deine Wiederbelebung wurde abgebrochen, da dein Mörder zu früh gestorben ist."
+
+L["label_unknown_respawn_time"] = "Wiedereinstiegszeit"
